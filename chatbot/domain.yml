@@ -1,0 +1,66 @@
+version: "3.1"
+
+intents:
+  - greet
+  - show_menu
+  - add_to_cart
+  - show_total
+  - place_order
+  - choose_payment
+  - goodbye
+
+entities:
+  - food
+  - quantity
+  - payment_method
+
+slots:
+  food:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: food
+
+  quantity:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: quantity
+
+  payment_method:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: payment_method
+
+responses:
+  utter_greet:
+    - text: "👋 Welcome! How can I help you today?"
+
+  utter_show_menu:
+    - text: |
+        🍽️ Our Menu:
+        - Pizza (₹200)
+        - Burger (₹120)
+        - Pasta (₹180)
+        - Fries (₹100)
+
+  utter_ask_payment:
+    - text: |
+        💳 Choose a payment method:
+        1️⃣ Cash on Delivery
+        2️⃣ UPI
+
+  utter_goodbye:
+    - text: "🙏 Thank you for ordering with us!"
+
+actions:
+  - action_add_to_cart
+  - action_show_total
+  - action_place_order
+
+
+

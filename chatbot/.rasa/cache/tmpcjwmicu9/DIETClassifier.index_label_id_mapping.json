@@ -1,0 +1,9 @@
+{
+  "0": "add_to_cart",
+  "1": "choose_payment",
+  "2": "goodbye",
+  "3": "greet",
+  "4": "place_order",
+  "5": "show_menu",
+  "6": "show_total"
+}
