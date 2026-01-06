@@ -15,5 +15,7 @@ stories:
     - action: utter_ask_payment
     - intent: choose_payment
     - action: action_place_order
+    - intent: human_support
+    - action: utter_human_support
     - intent: goodbye
     - action: utter_goodbye

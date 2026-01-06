@@ -55,3 +55,10 @@ nlu:
     - bye
     - thank you
     - see you
+
+- intent: human_support
+  examples: |
+    - i want to talk to a human
+    - connect me to support
+    - human support
+    - customer care

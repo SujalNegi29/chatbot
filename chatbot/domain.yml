@@ -7,6 +7,7 @@ intents:
   - show_total
   - place_order
   - choose_payment
+  - human_support
   - goodbye
 
 entities:
@@ -53,6 +54,9 @@ responses:
         💳 Choose a payment method:
         1️⃣ Cash on Delivery
         2️⃣ UPI
+  
+  utter_human_support:
+    - text: "For Human support, please call 1800-123-456"
 
   utter_goodbye:
     - text: "🙏 Thank you for ordering with us!"

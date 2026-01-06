@@ -6,5 +6,9 @@ rules:
   steps:
   - intent: goodbye
   - action: utter_goodbye
-
+  
+- rule: Provide human support when requested
+  steps:
+  - intent: human_support
+  - action: utter_human_support
 
