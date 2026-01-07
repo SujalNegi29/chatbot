@@ -1,6 +1,10 @@
 version: "3.1"
 
 nlu:
+
+# --------------------
+# Greetings
+# --------------------
 - intent: greet
   examples: |
     - hey
@@ -9,56 +13,104 @@ nlu:
     - hello there
     - good morning
     - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
     - good afternoon
+    - hey there
+    - hey dude
 
-
+# --------------------
+# Show Menu
+# --------------------
 - intent: show_menu
   examples: |
     - show menu
     - what food do you have
     - food list
     - menu please
+    - what are today’s items
 
+# --------------------
+# Add to Cart
+# --------------------
 - intent: add_to_cart
   examples: |
-    - add pizza
-    - add 2 burgers
-    - i want pasta
-    - order fries
+    - add [1](quantity) [pizza](food)
+    - add [2](quantity) [burgers](food)
+    - add [3](quantity) [fries](food)
+    - i want [1](quantity) [pasta](food)
+    - order [2](quantity) [pizza](food)
+    - get me [1](quantity) [burger](food)
+    - please add [pasta](food)
 
+# --------------------
+# Show Total
+# --------------------
 - intent: show_total
   examples: |
     - show total
     - how much is the bill
     - total price
+    - what is my cart total
+    - how much do I need to pay
 
+# --------------------
+# Place Order
+# --------------------
 - intent: place_order
   examples: |
     - place order
     - checkout
     - confirm order
+    - proceed to payment
+    - order now
 
+# --------------------
+# Choose Payment
+# --------------------
 - intent: choose_payment
   examples: |
-    - cash on delivery
-    - upi
-    - pay by upi
+    - [cash on delivery](payment_method)
+    - [cod](payment_method)
+    - [upi](payment_method)
+    - pay by [upi](payment_method)
+    - i will pay using [cash on delivery](payment_method)
 
-- intent: goodbye
+# --------------------
+# Track Order
+# --------------------
+- intent: track_order
   examples: |
-    - bye
-    - thank you
-    - see you
+    - where is my order
+    - track my order
+    - order status
+    - is my food delivered
+    - track order [1234](order_id)
 
+# --------------------
+# Reorder
+# --------------------
+- intent: reorder_last
+  examples: |
+    - reorder my last order
+    - order again
+    - repeat my previous order
+    - same order as last time
+
+# --------------------
+# Human Support
+# --------------------
 - intent: human_support
   examples: |
     - i want to talk to a human
     - connect me to support
     - human support
     - customer care
+
+# --------------------
+# Goodbye
+# --------------------
+- intent: goodbye
+  examples: |
+    - bye
+    - thank you
+    - see you
+    - goodbye

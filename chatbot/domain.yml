@@ -7,6 +7,8 @@ intents:
   - show_total
   - place_order
   - choose_payment
+  - track_order
+  - reorder-last
   - human_support
   - goodbye
 
@@ -24,7 +26,7 @@ slots:
         entity: food
 
   quantity:
-    type: text
+    type: float
     influence_conversation: false
     mappings:
       - type: from_entity
@@ -36,6 +38,19 @@ slots:
     mappings:
       - type: from_entity
         entity: payment_method
+
+  order_id:                    
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+  
+  cart:
+  type: any
+  influence_conversation: false
+  mappings:
+    - type: custom
+
 
 responses:
   utter_greet:
@@ -54,6 +69,15 @@ responses:
         💳 Choose a payment method:
         1️⃣ Cash on Delivery
         2️⃣ UPI
+
+  utter_ask_track_order:
+    - text: "📦 Please wait while I check your order status..."
+
+  utter_no_previous_order:
+    - text: "⚠️ You don’t have any previous orders to reorder."
+
+  utter_reorder_confirm:
+    - text: "🔁 Items from your last order have been added to the cart."
   
   utter_human_support:
     - text: "For Human support, please call 1800-123-456"
@@ -65,6 +89,8 @@ actions:
   - action_add_to_cart
   - action_show_total
   - action_place_order
+  - action_track_order       
+  - action_reorder_last       
 
 
 

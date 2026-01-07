@@ -2,13 +2,80 @@ version: "3.1"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
+# -------------------------
+# Greeting
+# -------------------------
+- rule: Greet user
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
-  
-- rule: Provide human support when requested
-  steps:
-  - intent: human_support
-  - action: utter_human_support
+    - intent: greet
+    - action: utter_greet
 
+# -------------------------
+# Show menu
+# -------------------------
+- rule: Show menu
+  steps:
+    - intent: show_menu
+    - action: utter_show_menu
+
+# -------------------------
+# Add item to cart
+# -------------------------
+- rule: Add item to cart
+  steps:
+    - intent: add_to_cart
+    - action: action_add_to_cart
+
+# -------------------------
+# Show cart total
+# -------------------------
+- rule: Show total
+  steps:
+    - intent: show_total
+    - action: action_show_total
+
+# -------------------------
+# Checkout flow
+# -------------------------
+- rule: Ask payment method
+  steps:
+    - intent: place_order
+    - action: utter_ask_payment
+
+- rule: Place order after payment
+  steps:
+    - intent: choose_payment
+    - action: action_place_order
+
+# -------------------------
+# Track order
+# -------------------------
+- rule: Track order
+  steps:
+    - intent: track_order
+    - action: action_track_order
+
+# -------------------------
+# Reorder last order
+# -------------------------
+- rule: Reorder last order
+  steps:
+    - intent: reorder_last
+    - action: action_reorder_last
+    - action: action_show_total
+
+# -------------------------
+# Human support
+# -------------------------
+- rule: Provide human support
+  steps:
+    - intent: human_support
+    - action: utter_human_support
+
+# -------------------------
+# Goodbye
+# -------------------------
+- rule: Say goodbye anytime
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
