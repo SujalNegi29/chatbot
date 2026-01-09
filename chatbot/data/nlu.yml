@@ -84,6 +84,7 @@ nlu:
     - order status
     - is my food delivered
     - track order [1234](order_id)
+    
 
 # --------------------
 # Reorder
@@ -114,3 +115,6 @@ nlu:
     - thank you
     - see you
     - goodbye
+    - exit
+    - bye bye
+    -thanks

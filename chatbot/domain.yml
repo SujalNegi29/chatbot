@@ -83,7 +83,7 @@ responses:
     - text: "For Human support, please call 1800-123-456"
 
   utter_goodbye:
-    - text: "🙏 Thank you for ordering with us!"
+    - text: "🙏 Thank you, Have a great day!"
 
 actions:
   - action_add_to_cart
