@@ -9,7 +9,7 @@ import sqlite3
 # Helper: DB connection
 # -------------------------------------------------
 def get_db_connection():
-    return sqlite3.connect("food.db")
+    return sqlite3.connect("Food.db")
 
 
 # -------------------------------------------------
