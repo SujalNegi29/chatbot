@@ -10,6 +10,7 @@ intents:
   - track_order
   - reorder-last
   - human_support
+  - reorder_last
   - goodbye
 
 entities:
@@ -39,17 +40,20 @@ slots:
       - type: from_entity
         entity: payment_method
 
-  order_id:                    
-    type: text
+  cart:
+    type: any
     influence_conversation: false
     mappings:
       - type: custom
-  
-  cart:
-  type: any
-  influence_conversation: false
-  mappings:
-    - type: custom
+
+  order_id:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: order_id
+
+
 
 
 responses:

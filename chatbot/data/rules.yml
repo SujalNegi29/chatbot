@@ -48,7 +48,7 @@ rules:
     - action: action_place_order
 
 # -------------------------
-# Track order
+# Track order (single rule only)
 # -------------------------
 - rule: Track order
   steps:
@@ -56,13 +56,12 @@ rules:
     - action: action_track_order
 
 # -------------------------
-# Reorder last order
+# Reorder last order (single rule only)
 # -------------------------
 - rule: Reorder last order
   steps:
     - intent: reorder_last
     - action: action_reorder_last
-    - action: action_show_total
 
 # -------------------------
 # Human support
@@ -75,7 +74,7 @@ rules:
 # -------------------------
 # Goodbye
 # -------------------------
-- rule: Say goodbye anytime
+- rule: Say goodbye
   steps:
     - intent: goodbye
     - action: utter_goodbye

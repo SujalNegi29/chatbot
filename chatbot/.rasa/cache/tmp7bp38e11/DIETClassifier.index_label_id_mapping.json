@@ -1,0 +1,13 @@
+{
+  "0": "add_to_cart",
+  "1": "choose_payment",
+  "2": "goodbye",
+  "3": "greet",
+  "4": "human_support",
+  "5": "place_order",
+  "6": "reorder-last",
+  "7": "reorder_last",
+  "8": "show_menu",
+  "9": "show_total",
+  "10": "track_order"
+}

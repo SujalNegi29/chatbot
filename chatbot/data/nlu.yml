@@ -105,6 +105,13 @@ nlu:
     - connect me to support
     - human support
     - customer care
+    
+- intent: reorder-last
+  examples: |
+    - reorder my last order
+    - order the same thing again
+    - repeat my previous order
+    - place last order again
 
 # --------------------
 # Goodbye
