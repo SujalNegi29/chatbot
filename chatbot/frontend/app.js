@@ -1,39 +1,50 @@
-const chatBox = document.getElementById('chatBox');
-const input = document.getElementById('userInput');
-const sendBtn = document.getElementById('sendBtn');
+const chatBox = document.getElementById("chatBox");
+const userInput = document.getElementById("userInput");
+const sendBtn = document.getElementById("sendBtn");
 
 function addMessage(text, sender) {
-  const msg = document.createElement('div');
-  msg.className = `message ${sender}`;
-  msg.innerText = text;
-  chatBox.appendChild(msg);
+  const msgDiv = document.createElement("div");
+  msgDiv.classList.add("message", sender);
+  msgDiv.innerText = text;
+  chatBox.appendChild(msgDiv);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 async function sendMessage() {
-  const message = input.value.trim();
-  if (!message) return;
+  const text = userInput.value.trim();
+  if (!text) return;
 
-  addMessage(message, 'user');
-  input.value = '';
+  addMessage(text, "user");
+  userInput.value = "";
+
+  addMessage("Typing...", "bot");
 
   try {
-    const response = await fetch('http://localhost:5005/webhooks/rest/webhook', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sender: 'user123', message })
+    const res = await fetch("http://localhost:8000/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message: text })
     });
 
-    const data = await response.json();
-    data.forEach(item => {
-      if (item.text) addMessage(item.text, 'bot');
-    });
+    const data = await res.json();
+
+    // remove "Typing..."
+    chatBox.removeChild(chatBox.lastChild);
+
+    addMessage(data.reply, "bot");
+
   } catch (error) {
-    addMessage('Bot server is not reachable', 'bot');
+    chatBox.removeChild(chatBox.lastChild);
+    addMessage("⚠️ Server error. Try again.", "bot");
   }
 }
 
-sendBtn.addEventListener('click', sendMessage);
-input.addEventListener('keypress', e => {
-  if (e.key === 'Enter') sendMessage();
+sendBtn.addEventListener("click", sendMessage);
+
+userInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    sendMessage();
+  }
 });
